@@ -1,0 +1,129 @@
+.mainScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.mainScreen .background {
+    z-index: -1;
+}
+
+.mainScreen .title {
+    position: relative;
+    text-align: center;
+    line-height: 2.5em;
+    font-size: 2.5em;
+}
+
+.mainScreen .title h3 {
+    position: relative;
+    -webkit-text-stroke: 1px #000;
+    color: #fff;
+}
+
+.mainScreen .title h1 {
+    position: relative;
+    overflow: hidden;
+    margin-top: -30px;
+    background: linear-gradient(to right, #FFC940, #FFC940 50%, #000 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 0.5s ease;
+}
+
+.mainScreen .title h1:hover {
+    background-position: 0 100%;
+}
+
+@media (max-width: 600px) {
+    .mainScreen .title {
+        font-size: 2em;
+        top: -20px;
+    }
+}
+@media (max-width: 500px) {
+    .mainScreen .title h1{
+        font-size: 1.7em;
+    }
+}
+
+/*WORM*/
+
+.wormButton {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.wormButton h1 {
+    position: relative;
+    font-weight: 500;
+    font-size: 1.3em;
+}
+
+.wormButton img {
+    position: absolute;
+    left: 48%;
+    width: 50px;
+    height: auto;
+    margin-top: 10px;
+}
+
+.wormButton .worm .one {margin-top: 10px; animation: wooble 2s infinite ease-in-out 0.6s}
+.wormButton .worm .two {margin-top: 20px; animation: wooble 2s infinite ease-in-out 0.4s}
+.wormButton .worm .three {margin-top: 30px; animation: wooble 2s infinite ease-in-out 0.2s}
+.wormButton .worm .four {
+    margin-top: 40px; 
+    animation:wooble 2s infinite ease-in-out;
+}
+
+.wormButton .worm .four {
+    cursor: none;
+}
+
+
+@media (max-width: 600px) {
+    .wormButton h1 {
+        font-size: 1em;
+    }
+    .wormButton img {
+        width: 40px;
+    }
+    .wormButton {
+        margin-top: 0px;
+    }
+}
+
+@keyframes wooble {
+    0%{left: 48%}
+    50%{left: 50%}
+    100%{left: 48%}
+}
+
+.social {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: 95vw;
+    font-size: 1.5em;
+    color: #FFC940;
+}
+
+.social i {
+    cursor: none;
+}
+
+.social .fa-facebook-square {
+    margin-bottom: 15px;
+}
+
+@media (max-width: 800px) {
+    .social {
+        transform: translateY(40vh);
+        left: 92vw;
+    }
+}
