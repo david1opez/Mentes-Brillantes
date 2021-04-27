@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "David Lopez https://github.com/david1opez",
   "license": "ISC",
   "dependencies": {
     "cryptr": "^6.0.2",
