@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./css/cursor.css">
     <link rel="stylesheet" href="./css/popups.css">
     <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/menu.css">
 
     <!--Index style links-->
         <link rel="stylesheet" href="./css/index/main.css">
@@ -41,6 +42,14 @@
             width: 100vw;
             height: 100vh;
         }
+        ::-moz-selection { /* Code for Firefox */
+            color: #fff;
+            background: #ff5c467e;
+        }
+        ::selection {
+        color: #fff;
+        background: #ff5c467e;
+        }
     </style>
 
     <!--Transition style-->
@@ -48,7 +57,7 @@
         ul.transition {
         display: flex;
         position: fixed;
-        z-index: 10;
+        z-index: 999999;
         height: 100vh;
         width: 120%;
         top: 0;
@@ -66,8 +75,7 @@
     </style>
 
 </head>
-    <body data-barba="wrapper" onload="createThings();"> <!--TODO: MAYBE YOU WOULD NEED TO CHANGE THIS-->
-
+    <body data-barba="wrapper" onload="createThings()"> <!--TODO: MAYBE YOU WOULD NEED TO CHANGE THIS-->
         <nav class="navbar">
             <img class="logo" src="https://mentesbrillantes.netlify.app/assets/logo.png">
             <a href="#" class="access">Acceder</a>
@@ -144,27 +152,51 @@
                     <img src="https://images.squarespace-cdn.com/content/v1/569b4b681c1210c8102de462/1454566479226-V72K8WQD8CMZS1Q8TM5F/ke17ZwdGBToddI8pDm48kFWxnDtCdRm2WA9rXcwtIYR7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UcTSrQkGwCGRqSxozz07hWZrYGYYH8sg4qn8Lpf9k1pYMHPsat2_S1jaQY3SwdyaXg/events_cover.jpg?format=1500w" />
                     <img src="https://www.melkycelebrations.com/wp-content/uploads/2017/04/School%20Annual%20Day.jpg" />
                     <img src="https://ca-times.brightspotcdn.com/dims4/default/40b422f/2147483647/strip/true/crop/2048x1365+0+0/resize/1440x960!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Ff3%2F56%2F7960b24358702801fe486c78224b%2Fhoyla-fgal-fueldyourschool2-003" />
+                    <img src="https://ericsgoodkarmacookies.com/wp-content/uploads/2016/04/School-Events-3-edited.jpg" />
+                    <img src="https://images.squarespace-cdn.com/content/v1/569b4b681c1210c8102de462/1454566479226-V72K8WQD8CMZS1Q8TM5F/ke17ZwdGBToddI8pDm48kFWxnDtCdRm2WA9rXcwtIYR7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UcTSrQkGwCGRqSxozz07hWZrYGYYH8sg4qn8Lpf9k1pYMHPsat2_S1jaQY3SwdyaXg/events_cover.jpg?format=1500w" />
                 </div>
             </div>
 
             <div class="footer">
                 <h1>
-                    Esta pagina fue hecha con
+                    Esta pagina fue hecha con amortz💖
                     <br>
-                    amortz💖 de parte de:
+                    completamente por <spna class="shamelessPlug" style="text-decoration:  underline;" onclick="window.open(`https://www.instagram.com/david_1opez/`)">un alumno</spna> del <br class="linebreak"> <span onclick="window.open(`http://www.cnb.mx/`)">Colegio Nicolás Bravo</span>
                 </h1>
-                <img src="https://mentesbrillantes.netlify.app/assets/Uncreative.png" class="shamelessPlug"/>
-                <div class="decorations">
-                    <img src="" class=""/>
-                    <img src="" class=""/>
-                </div>
-                <a href="#">Aviso de privacidad</a>
+                <a href="test.html">Aviso de privacidad</a>
                 <h3>© 2021 Colegio Nicolás Bravo de Saltillo, A.C. 
                     <br>Todos los derechos reservados.</h3>
             </div>
 
         </div>
 
+        <div class="menu">
+            <div class="container">
+                <ul>
+                    <li class="inicio">Inicio</li>
+                    <li class="contacto">Contacto</li>
+                    <li class="acerca">Acerca de</li>
+                    <li class="proyectos">Proyectos</li>
+                    <li class="perfil">Ver perfil</li>
+                </ul>
+
+                <div class="admin">
+                    <i class="fas fa-arrow-right"></i>
+                    <a href="#">Vista administrador</a>
+                </div>
+            </div>
+
+            <div class="contact">
+                <h3>Saltillo Coah. Gral. Nicolás Bravo Norte</h3>
+                <h3><span style="font-weight: 700;">No. 806</span> Zona centro</h3>
+                <h1 onclick="window.open(`http://www.cnb.mx`)")>http://www.cnb.mx</h1>
+            </div>
+        </div>
+
+        <div class="menuButton">
+            <i class="fas fa-times"></i>
+        </div>
+        
         <div class="popups">
             <div class="registerPopup">
                 <h1><span class="questionmark">¿ </span><span class="nuevo">Nuevo</span> Aquí<span class="questionmark"> ?</span></h1>
@@ -235,11 +267,13 @@
 
     <!--Import other Libraries-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
 
     <!--Import local scripts-->
     <script src="./js/locomotive-scroll.min.js"></script>
     <script src="./js/cursor.js"></script>
     <script src="./js/popup.js"></script>
+    <script src="./js/transition.js"></script>
 
     <!--Script for smooth scroll-->
     <script>
@@ -264,11 +298,26 @@
         })();
     </script>
 
+    <!--Barba js Page transitions-->
+    <script>
+        barba.init({
+            transitions: [{
+                async leave(data) {
+                    const done = this.async();
+                    pageTransition();
+        
+                    await delay(1500);
+                },
+                async enter(data) {}
+            }]
+        });
+    </script>
+
     <!--Script for creating the company's cards-->
     <!--TODO: MAKE THIS WORK-->
     <script>
         function createThings() {
-            var appendTo = document.querySelector(".scroller");
+           for(var o = 0; o < 11; o++){ var appendTo = document.querySelector(".scroller");
 
             var card = document.createElement("div");
             var title = document.createElement("h2");
@@ -289,7 +338,7 @@
             card.appendChild(title);
             card.appendChild(imageContainer);
             imageContainer.appendChild(image);
-            card.appendChild(team)
+            card.appendChild(team)}
         }
 
         async function getTeamsData() {
@@ -307,6 +356,15 @@
         }
 
         getTeamsData();
+    </script>
+
+    <!--SCript for showing and hiding the menu-->
+    <script>
+        document.querySelector(".menuButton").addEventListener('click', () => {
+            var menu = document.querySelector('.menu');
+
+            menu.classList.toggle("showMenu");
+        })
     </script>
 
     <!--Script for enableing the proyect's page grab scroll-->

@@ -210,19 +210,40 @@ function validate() {
     /*TODO: ADD CHECK IF THE GRADE IS BETWEEN
       2-4 IF THE USER SELECTED HIGHSCHOOL
       AND 1-3 IF THE USER SELECTED MIDDLESCHOOL*/
-    else if(!checkbox.checked && select == "secundaria") {
-        if(grade > 3 || grade < 1) {
-            ok++;
-            errorPopup(1, numberInput);
+    else if(select.value == "secundaria") {
+        if(checkbox.checked) {
+            noErrorStyles(numberInput);
         }
-        console.log("P")
+        else{
+            if(grade > 3 || grade < 1) {
+                ok++;
+                errorPopup(2, numberInput);
+            }
+            else {
+                ok--
+                noErrorStyles(numberInput);
+            }
+        }
     }
-    else if(!checkbox.checked && select == "preparatoria") {
-        if(grade != 4 || grade != 2) {
-            ok++;
-            errorPopup(1, numberInput);
+    else if(select.value == "preparatoria") {
+        if(checkbox.checked) {
+            noErrorStyles(numberInput);
         }
-        console.log("S")
+        else{
+            console.log("p");
+            if(grade != 4) {
+                ok++;
+                errorPopup(2, numberInput);
+            }
+            else if(grade != 2) {
+                ok++;
+                errorPopup(2, numberInput);
+            }
+            else {
+                ok--
+                noErrorStyles(numberInput);
+            }
+        }
     }
     //If everything is okay subtract an error from "ok"
     //And remove error styles if needed
@@ -320,7 +341,9 @@ function errorPopup(messageId, element) {
 
 //Function to put the styles back to normal if an error gets corrected
 function noErrorStyles(element) {
+    try{
     element.style.borderBottom = "1px solid #000";
     element.style.color = "#000";
     element.style.background = "#fff";
+    } catch{}
 }

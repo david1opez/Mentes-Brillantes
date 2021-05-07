@@ -3,7 +3,7 @@ var user = firebase.auth().currentUser;
 
 document.querySelector(".navbar .login").addEventListener("click", () => {login();})
 
-function submit(n,g,s) {
+function submit() {
     if(validate()) {
         register();
         hidePopup();
