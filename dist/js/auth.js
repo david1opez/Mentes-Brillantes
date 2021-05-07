@@ -40,8 +40,12 @@ async function uploadUserData(user, uid) {
     var department = select.value;
     var code = codeInput.value.toLowerCase();
 
+    var info;
+
+    //IF THE "No soy estudiante" CHECKBOX IS CHECKED
+    //THEN WE REGISTER THE USER AS A FOREIGN
     if(checkbox.checked) {
-        var info = {
+        info = {
             action: "FOREIGN",
             username: users_name,
             email: e_mail,
@@ -49,39 +53,11 @@ async function uploadUserData(user, uid) {
             grade: "",
             department: ""
         }
-        var options={
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(info)
-        }
-
-        fetch("/321fc4EE-ec01-4562-8f39-93106fAef42e", options);
     }
-    else{
-        var info = {
-            action: "LOCAL",
-            username: users_name,
-            email: e_mail,
-            uid: uid,
-            department: department,
-            grade: section,
-        }
-        var options={
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(info)
-        }
-
-        fetch("/321fc4EE-ec01-4562-8f39-93106fAef42e", options);
-    }
-
-    /*TODO: THIS MUST BE FIXED
-    if(userType == "participant"){
-        var info = {
+    //IF THE USER IS PARTICIPANT
+    else if(userType == "participant"){
+        info = {
+            action: "PARTICIPANT",
             username: users_name,
             email: e_mail,
             uid: uid,
@@ -89,16 +65,29 @@ async function uploadUserData(user, uid) {
             grade: section,
             code: code
         }
-        var options={
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(info)
+    }
+    //IF THE USER IS NOT A PARTICIPANT NOR A FOREIGN
+    else{
+        info = {
+            action: "LOCAL",
+            username: users_name,
+            email: e_mail,
+            uid: uid,
+            department: department,
+            grade: section,
         }
-    }*/
+    }
 
-    console.log(user)
+    //CONFIGURATION FOR THE REQUEST
+    var options={
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(info)
+    }
+
+    fetch("/321fc4EE-ec01-4562-8f39-93106fAef42e", options);
 }
 
 function login() {
