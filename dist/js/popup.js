@@ -23,9 +23,18 @@ document.querySelector(".register").addEventListener("click", () => {
     viewer();
 })
 
+//Add event listener to login and mobile login buttons
+document.querySelector(".navbar .login").addEventListener("click", () => {login();})
+document.querySelector(".accessPopup .login").addEventListener("click", () => {login();})
+
 //If the user clicks the login button close the register Popup
 document.querySelector(".login").addEventListener("click", () => {hidePopup()})
 
+//If the user clicks in the login button close the registration popup
+document.querySelector(".accessPopup i").addEventListener("click", () => {hidePopup()})
+
+//Close the Register Popup when the user clicks outside of it
+document.addEventListener("click", (e) => {if(e.target == popupsContainer) {hidePopup()}})
 //Close the Register Popup when the user clicks outside of it
 document.addEventListener("click", (e) => {if(e.target == popupsContainer) {hidePopup()}})
 
