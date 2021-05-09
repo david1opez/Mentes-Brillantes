@@ -1,8 +1,6 @@
 var provider = new firebase.auth.GoogleAuthProvider();
 var user = firebase.auth().currentUser;
 
-document.querySelector(".navbar .login").addEventListener("click", () => {login();})
-
 function submit() {
     if(validate()) {
         register();
