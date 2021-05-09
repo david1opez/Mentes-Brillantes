@@ -206,17 +206,15 @@ function validate() {
         numberInput.style.background = "#ffd2cc"
         numberInput.style.borderBottom = "2px solid red";
     }
-    //Check if the grade exists in the school
-    /*TODO: ADD CHECK IF THE GRADE IS BETWEEN
-      2-4 IF THE USER SELECTED HIGHSCHOOL
-      AND 1-3 IF THE USER SELECTED MIDDLESCHOOL*/
+    //Check if the grade exists in middleschool (1st to 3rd grade)
     else if(select.value == "secundaria") {
         if(checkbox.checked) {
+            ok--
             noErrorStyles(numberInput);
         }
         else{
             if(grade > 3 || grade < 1) {
-                ok++;
+                ok++
                 errorPopup(2, numberInput);
             }
             else {
@@ -224,33 +222,29 @@ function validate() {
                 noErrorStyles(numberInput);
             }
         }
+
     }
-    else if(select.value == "preparatoria") {
+    //Check if the grade exists in highschool (2nd or 4th grade)
+    else{
         if(checkbox.checked) {
+            ok--
             noErrorStyles(numberInput);
         }
         else{
-            console.log("p");
-            if(grade != 4) {
-                ok++;
+            if(grade < 5) {
+                if(grade != 4 && grade != 2) {
+                    ok++
+                    errorPopup(2, numberInput);
+                }
+                else {
+                    ok--
+                    noErrorStyles(numberInput);
+                }
+            }
+            else{
+                ok++
                 errorPopup(2, numberInput);
             }
-            else if(grade != 2) {
-                ok++;
-                errorPopup(2, numberInput);
-            }
-            else {
-                ok--
-                noErrorStyles(numberInput);
-            }
-        }
-    }
-    //If everything is okay subtract an error from "ok"
-    //And remove error styles if needed
-    else {
-        ok--;
-        if(!checkbox.checked) {
-            noErrorStyles(numberInput);
         }
     }
 
