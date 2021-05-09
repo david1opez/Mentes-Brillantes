@@ -6,7 +6,7 @@ function pageTransition() {
         scaleY: 1,
         transformOrigin: "bottom left",
         stagger: .2
-    });
+    })
 
     tl.to("ul.transition li", {
         duration: .5,
