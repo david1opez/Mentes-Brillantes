@@ -87,7 +87,16 @@ async function uploadUserData(user, uid) {
         body: JSON.stringify(info)
     }
 
-    fetch("/321fc4EE-ec01-4562-8f39-93106fAef42e", options);
+    const response = await fetch("/321fc4EE-ec01-4562-8f39-93106fAef42e", options);
+    const data = await response.json();
+
+    if(data.status == "error") {
+        var user = firebase.auth().currentUser;
+        user.delete().then(function() {}).catch(function(error) {console.log(error)});
+        popupsContainer.style.opacity = 1
+        popupsContainer.style.display = "block"
+        errorPopup(3, codeInput);
+    }
 }
 
 function login() {
@@ -130,16 +139,25 @@ async function showButtons() {
         if(data.userType == "participant") {
             document.querySelector(".navbar .register").style.display = "none"
             document.querySelector(".navbar .login").style.display = "none"
+            document.querySelector(".navbar .access").style.display = "none"
             document.querySelector(".navbar .logout").style.display = "inline-block"
             document.querySelector(".navbar .edit").style.display = "inline-block"
 
             document.querySelector(".navbar .logout").addEventListener("click", logout)
         }
-        else{
+        else if (data.userType == "foreign" || data.userType == "local") {
             document.querySelector(".navbar .register").style.display = "none"
             document.querySelector(".navbar .login").style.display = "none"
+            document.querySelector(".navbar .access").style.display = "none"
             document.querySelector(".navbar .logout").style.display = "inline-block"
 
             document.querySelector(".navbar .logout").addEventListener("click", logout)
+        }
+        else{
+            document.querySelector(".navbar .register").style.display = "inline-block"
+            document.querySelector(".navbar .login").style.display = "inline-block"
+            document.querySelector(".navbar .access").style.display = "inline-block"
+            document.querySelector(".navbar .logout").style.display = "none"
+            document.querySelector(".navbar .edit").style.display = "none"
         }
 }
