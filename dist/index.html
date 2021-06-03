@@ -75,7 +75,7 @@
     </style>
 
 </head>
-    <body data-barba="wrapper" onload="createThings()"> <!--TODO: MAYBE YOU WOULD NEED TO CHANGE THIS-->
+    <body data-barba="wrapper">
         <nav class="navbar">
             <img class="logo" src="https://mentesbrillantes.netlify.app/assets/logo.png">
             <a href="#" class="access">Acceder</a>
@@ -85,7 +85,7 @@
             <a href="#" class="edit">Editar empresa</a>
         </nav>
 
-        <div data-barba="container" data-barba-namespace="home"  data-scroll-container>
+        <div data-barba="container" data-barba-namespace="home-section"  data-scroll-container>
 
             <div class="mainScreen">
 
@@ -95,8 +95,8 @@
                 </div>
 
                 <div class="social">
-                    <i class="fab fa-facebook-square"></i>
-                    <i class="fab fa-instagram"></i>
+                    <a href="#"><i class="fab fa-facebook-square"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
                 </div> 
                 
                 <div class="wormButton">
@@ -165,7 +165,13 @@
                 </h1>
                 <a href="test.html">Aviso de privacidad</a>
                 <h3>© 2021 Colegio Nicolás Bravo de Saltillo, A.C. 
-                    <br>Todos los derechos reservados.</h3>
+                <br>Todos los derechos reservados.</h3>
+
+                <div class="issues">
+                    <h3>¿Encontraste algún problema en la página?</h3>
+                    <a onclick="window.open(`https://github.com/david1opez/Mentes-Brillantes/issues/new`)">Reportalo en nuestro github</a>
+                    <i class="fab fa-github"></i>
+                </div>
             </div>
 
         </div>
@@ -266,6 +272,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
 
     <!--Import other Libraries-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
     <script src="https://unpkg.com/@barba/core"></script>
 
@@ -301,12 +308,13 @@
     <!--Barba js Page transitions-->
     <script>
         barba.init({
+            sync: true,
             transitions: [{
                 async leave(data) {
                     const done = this.async();
                     pageTransition();
-        
                     await delay(1500);
+                    done();
                 },
                 async enter(data) {}
             }]
@@ -358,7 +366,7 @@
         getTeamsData();
     </script>
 
-    <!--SCript for showing and hiding the menu-->
+    <!--Script for showing and hiding the menu-->
     <script>
         document.querySelector(".menuButton").addEventListener('click', () => {
             var menu = document.querySelector('.menu');
