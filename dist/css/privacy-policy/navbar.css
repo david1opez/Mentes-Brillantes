@@ -1,0 +1,11 @@
+.navbar .logo::-moz-selection {
+  background: none;
+}
+
+.navbar .logo::selection {
+  background: none;
+}
+
+.navbar img {
+  cursor: pointer;
+}
