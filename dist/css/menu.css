@@ -1,164 +1,267 @@
 .menuButton {
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60px;
-    height: 60px;
-    top: 85vh;
-    z-index: 101;
-    margin-left: 50px;
-    border-radius: 100px;
-    font-size: 1.5em;
-    background-color: #000;
-    color: #fff;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  top: 85vh;
+  z-index: 101;
+  margin-left: 50px;
+  border-radius: 100px;
+  font-size: 1.5em;
+  background-color: #ffc940;
+  box-shadow: 0px 4px 20px -1px rgba(0, 0, 0, 0.13);
+  color: #fff;
+  transition: 0.3s;
 }
 
+/*Burguer animation by Adrien Lloret*/
+/*https://codepen.io/lloret-adrien/pen/YzpGKVW*/
+.line1,
+.line2 {
+  background-color: #fff;
+  height: 3px;
+  width: 30px;
+  transition: transform 500ms;
+}
+
+.line1 {
+  margin-bottom: 10px;
+}
+
+.menuButton:hover {
+  transform: rotate(-180deg);
+}
+
+.active1 {
+  transform: rotate(-315deg) translateY(5px) translateX(5px);
+}
+
+.active2 {
+  transform: rotate(315deg) translateY(-5px) translateX(5px);
+}
+
+.active3 {
+  background: #000;
+}
+/*/Burguer animation by Adrien Lloret*/
+
+/*Menu button hover animation*/
+@-webkit-keyframes hvr-bob {
+  0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@keyframes hvr-bob {
+  0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@-webkit-keyframes hvr-bob-float {
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@keyframes hvr-bob-float {
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+.menuButton:hover,
+.menuButton:focus,
+.menuButton:active {
+  -webkit-animation-name: hvr-bob-float, hvr-bob;
+  animation-name: hvr-bob-float, hvr-bob;
+  -webkit-animation-duration: 0.3s, 1.5s;
+  animation-duration: 0.3s, 1.5s;
+  -webkit-animation-delay: 0s, 0.3s;
+  animation-delay: 0s, 0.3s;
+  -webkit-animation-timing-function: ease-out, ease-in-out;
+  animation-timing-function: ease-out, ease-in-out;
+  -webkit-animation-iteration-count: 1, infinite;
+  animation-iteration-count: 1, infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-direction: normal, alternate;
+  animation-direction: normal, alternate;
+}
+/*Menu button hover animation*/
+
 .menu {
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    width: 37vw;
-    top: 0;
-    background: #fff;
-    z-index: 100;
-    box-shadow: 7px 4px 31px -7px rgba(0, 0, 0, 0.15);
-    min-width: 420px;
-    transition: 0.6s;
-    transform: translateX(-100%)
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 37vw;
+  top: 0;
+  background: #fff;
+  z-index: 100;
+  box-shadow: 7px 4px 31px -7px rgba(0, 0, 0, 0.15);
+  min-width: 420px;
+  transition: 0.6s;
+  transform: translateX(-100%);
 }
 
 .showMenu {
-    transform: translateX(0%)
+  transform: translateX(0%);
 }
 
 .menu .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 68%;
-    width: 80%;
-    transform: translate(12%, 15%);
-    background: #FFC940;
-    color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 68%;
+  width: 80%;
+  transform: translate(12%, 15%);
+  background: #ffc940;
+  color: #fff;
 }
 
 .menu .container ul {
-    display:block;
-    margin-left: 7%;
-    margin-top: -10%;
-    font-size: 2.2em;
-    font-weight: 700;
+  display: block;
+  margin-left: 7%;
+  margin-top: -10%;
+  font-size: 2.2em;
+  font-weight: 700;
 }
 
+/*Links hover effects*/
 .menu .container li::before {
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 8px;
-    background-color: #ff5b46;
-    margin-top: 6%;
-    transition: width 0.4s;
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 8px;
+  background-color: #ff5b46;
+  margin-top: 6%;
+  transition: width 0.4s;
 }
 
 .menu .container .inicio::before {
-    width: 25%;
+  width: 25%;
 }
 
 .menu .container .contacto:hover::before {
-    width: 43%;
-    transition: 0.4s;
+  width: 43%;
+  transition: 0.4s;
 }
 
 .menu .container .acerca:hover::before {
-    width: 46%;
-    transition: 0.4s;
+  width: 46%;
+  transition: 0.4s;
 }
 
 .menu .container .proyectos:hover::before {
-    width: 46%;
-    transition: 0.4s;
+  width: 46%;
+  transition: 0.4s;
 }
 
 .menu .container .perfil:hover::before {
-    width: 41%;
-    transition: 0.4s;
+  width: 41%;
+  transition: 0.4s;
 }
+/*/Links hover effects*/
 
 .menu .container .admin {
-    position: relative;
-    text-align: right;
-    top: 18%;
-    margin-right: 20px;
+  position: relative;
+  text-align: right;
+  top: 18%;
+  margin-right: 20px;
 }
 
 .menu .container .admin a {
-    color: #fff;
+  color: #fff;
 }
 
-.menu .contact{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    top: 15%;
-    text-align: right;
-    margin-right: 12%;
+.menu .contact {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  top: 15%;
+  text-align: right;
+  margin-right: 12%;
 }
 
 .menu .contact h3 {
-    font-size: 0.8em;
-    font-weight: 400;
+  font-size: 0.8em;
+  font-weight: 400;
 }
 
 .menu .contact h1 {
-    font-size: 1em;
-    font-weight: 700;
-    margin-top: 15px;
-    text-decoration: underline;
+  font-size: 1em;
+  font-weight: 700;
+  margin-top: 15px;
+  text-decoration: underline;
 }
 
 @media (max-width: 600px) {
-    .menu .container li::before {
-        margin-top: 7%;
-    }
-    .menu .container .inicio::before {
-        width: 29%;
-    }
-    
-    .menu .container .contacto:hover::before {
-        width: 50%;
-        transition: 0.4s;
-    }
-    
-    .menu .container .acerca:hover::before {
-        width: 54%;
-        transition: 0.4s;
-    }
-    
-    .menu .container .proyectos:hover::before {
-        width: 54%;
-        transition: 0.4s;
-    }
-    
-    .menu .container .perfil:hover::before {
-        width: 49%;
-        transition: 0.4s;
-    }
-    .menu .contact {
-        font-size: 0.9em;
-        top: 17%;
-    }
+  .menu .container li::before {
+    margin-top: 7%;
+  }
+  .menu .container .inicio::before {
+    width: 29%;
+  }
+
+  .menu .container .contacto:hover::before {
+    width: 50%;
+    transition: 0.4s;
+  }
+
+  .menu .container .acerca:hover::before {
+    width: 54%;
+    transition: 0.4s;
+  }
+
+  .menu .container .proyectos:hover::before {
+    width: 54%;
+    transition: 0.4s;
+  }
+
+  .menu .container .perfil:hover::before {
+    width: 49%;
+    transition: 0.4s;
+  }
+  .menu .contact {
+    font-size: 0.9em;
+    top: 17%;
+  }
 }
 
 @media (max-width: 450px) {
-    .menu .container {
-        height: 60%;
-    }
-    .menu .container .admin {
-        top: 16%;
-    }
-    .menuButton {
-        top: 78vh;
-    }
+  .menu .container {
+    height: 60%;
+  }
+  .menu .container .admin {
+    top: 16%;
+  }
+  .menuButton {
+    top: 78vh;
+  }
+}
+
+@keyframes admin-animation {
+  50% {
+    transform: translateX(-10px);
+  }
 }
