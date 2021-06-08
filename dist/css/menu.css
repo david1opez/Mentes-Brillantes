@@ -256,7 +256,8 @@
     top: 16%;
   }
   .menuButton {
-    top: 78vh;
+    top: 88vh;
+    margin-left: 20px;
   }
 }
 
